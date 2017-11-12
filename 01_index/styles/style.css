@@ -2,20 +2,90 @@ a:hover{
   text-decoration: none;
 }
 
+/*main styles*/
+body{
+  counter-reset: count;
+}
+figure{
+  margin: 0;
+}
+h1,h2,h3,h4,header p{
+  font-family: 'Playfair Display', serif;
+}
+input:placeholder,textarea:placeholder{
+font-family: 'Open Sans', sans-serif;
+}
+input:focus, textarea:focus{
+  outline: none;
+}
+.wrapper{
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.about-us,.practis-area,.attorney,.our-client,.publications,.faq,.contact{
+  padding: 100px 0;
+}
+header p{
+  font-size: 20px;
+}
+.counter h3{
+  font-weight: bold;
+  font-size: 30px;
+}
+.counter{
+  position: relative;
+  z-index: 0;
+  border-left: 2px solid #e8bf5d;
+  margin-bottom: 100px;
+  padding-left: 30px;
+  max-width: 690px;
+}
+.counter::before{
+  position: absolute;
+  font-size: 194px;
+  z-index: 1;
+  color: #d6d6d6;
+  opacity: 0.2;
+  font-weight: 500;
+  left: 5px;
+  top: -85px;
+  counter-increment: count;
+  font-family: 'Open Sans', sans-serif;
+}
+.counter::before{
+  content: "0" counter(count);
+}
+
+
 /*topsection*/
 .top{
-  background-image: url(../images/image1.png);
-  background-repeat: no-repeat;
+  background: url(../images/image1.png) no-repeat;
+  background-size: cover;
   height: 100vh;
   position: relative;
+  z-index: 1;
+}
+.top:before{
+  position: absolute;
+  content: "";
+  height: 100vh;
+  background: url(../images/gradient.png) repeat-x;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .top-header{
   background: #fff;
-  line-height: 100px;
+  line-height: 110px;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
 }
 .top-header-wrapper{
-  max-width: 1170px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -24,16 +94,22 @@ a:hover{
   text-transform: uppercase;
 }
 .top-header-wrapper nav a{
-  margin-left: 10px;
+  margin-left: 25px;
+  padding: 0 10px;
+  position: relative;
+  color: #000000;
+}
+#about-us,#practis-area,#attorney,#publications,#faq,#contact{
+  top: -150px;
   position: relative;
 }
 .top-header-wrapper nav a::after{
   content: "";
-  height: 2px;
+  height: 6px;
   position: absolute;
   top: 30px;
   width: 100%;
-  background: black;
+  background: #e8bf5d;
   left: 0;
   opacity: 0;
   transition: all 0.5s;
@@ -41,19 +117,354 @@ a:hover{
 .top-header-wrapper nav a:hover::after{
   opacity: 1;
 }
-
 .adam-lawyer{
   position: absolute;
   bottom: 70px;
+  max-width: 970px;
   display: flex;
   align-items: center;
-  max-width: 1000px;
   width: 100%;
   left: 50%;
-  margin-left: -500px;
-  border-left: 2px solid yellow;
-  padding: 0 20px;
+  margin-left: -485px;
+  border-left: 3px solid #e8bf5d;
+  padding: 0 0 0 20px;
 }
-.contact-person{
+.person-name{
+  color: #ffffff;
+}
+.person-name h2{
+  font-size: 60px;
+}
+.person-name p{
+  font-size: 30px;
+}
+.button{
   margin-left: auto;
+  width: 180px;
+  border: none;
+  border-radius: 25px;
+  line-height: 50px;
+  background: #e8bf5d;
+  font-size: 16px;
+  transition: all 0.5s;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+}
+.button:focus{
+  outline: none;
+}
+.button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+
+
+/*about us*/
+
+.about-us-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.about-us-content h4{
+  margin-bottom: 35px;
+  font-size: 25px;
+}
+.history dl{
+  padding-left: 100px;
+  position: relative;
+}
+.history dt{
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  line-height: 45px;
+}
+.history dd{
+  margin-bottom: 10px;
+}
+.expertise p{
+  line-height: 25px;
+}
+
+.history,.expertise{
+  max-width: 48%;
+}
+.history dl,.expertise p{
+  font-size: 18px;
+}
+
+/*practis area*/
+.practis-area{
+  background: #000;
+  color: #fff;
+}
+.our-skills{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.our-skills div{
+  max-width: 420px;
+  position: relative;
+  margin-left: 150px;
+  margin-bottom: 70px;
+}
+.our-skills h4{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.our-skills p{
+  line-height: 25px;
+}
+.our-skills div::before{
+  position: absolute;
+  content: "";
+  background: url(../images/icon-sprite.png) no-repeat;
+  right: 445px;
+  top: 10px;
+}
+.our-skills .private-cl-serv::before{
+  width: 58px;
+  height: 37px;
+}
+.our-skills .labour-and-eploy::before{
+  width: 43px;
+  height: 44px;
+  background-position: -107px 0;
+}
+.our-skills .cyber-sequre::before{
+  width: 48px;
+  height: 42px;
+  background-position: -58px 0;
+}
+.our-skills .real-estate::before{
+  width: 41px;
+  height: 39px;
+  background-position: -150px 0;
+}
+/*attorney*/
+.our-attorney{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.our-attorney figcaption{
+  margin: 30px 0;
+}
+.our-attorney figcaption h4{
+  font-weight: bold;
+  font-size: 25px;
+}
+.our-attorney figcaption p{
+  color: #666666;
+}
+
+/*our-client*/
+
+.our-client{
+  background: url(../images/image2.jpg) no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  position: relative;
+}
+.our-client .wrapper{
+  position: relative;
+}
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.85);
+  z-index: 0;
+}
+.client{
+  display: flex;
+  justify-content: space-between;
+}
+.clients-photo{
+  -webkit-box-shadow: 20px 20px 0px 0px rgba(232,191,93,1);
+  -moz-box-shadow: 20px 20px 0px 0px rgba(232,191,93,1);
+  box-shadow: 20px 20px 0px 0px rgba(232,191,93,1);
+}
+.clients-comment{
+  max-width: 600px;
+  position: relative;
+}
+.clients-comment p{
+  line-height: 35px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.clients-comment::before{
+  content: "";
+  width: 30px;
+  height: 25px;
+  background: url(../images/qoutes.png) no-repeat;
+  position: absolute;
+  left: -50px;
+  top: 0;
+}
+
+/*publications*/
+
+.publication-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.publication-items figure{
+  max-width: 370px;
+  border-bottom: 3px solid #e8bf5d;
+  margin-bottom: 35px;
+}
+.publication-items figcaption{
+  margin: 30px 0;
+}
+.pub-tite{
+  font-size: 20px;
+}
+.pub-data{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+.pub-data .pub-sh-descrip{
+  flex-grow: 1;
+}
+.pub-data em{
+  color: #666666;
+}
+.pub-sh-descrip{
+  font-size: 14px;
+  color: #666666;
+  margin: 30px 0;
+  line-height: 25px;
+}
+.pub-data a{
+  color: #000000;
+  transition: opacity 0.5s;
+}
+.pub-data a:hover{
+  opacity: 0.8;
+}
+.pub-data a::before{
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.pub-data .comments::before{
+  width: 19px;
+  height: 16px;
+  background: url(../images/comment-icon.png) no-repeat;
+}
+.pub-data a:last-child::before{
+  width: 17px;
+  height: 15px;
+  background: url(../images/share-icon.png) no-repeat;
+}
+
+/*faq*/
+.faq{
+  background: #111111;
+  color: #ffffff;
+}
+.questions{
+  display: flex;
+}
+.questions div{
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 10px;
+  background: #e8bf5d;
+  color: #000000;
+  -webkit-box-shadow: 0px 20px 30px 0px rgba(232,191,93,0.5);
+  -moz-box-shadow: 0px 20px 30px 0px rgba(232,191,93,0.5);
+  box-shadow: 0px 20px 30px 0px rgba(232,191,93,0.5);
+}
+.questions div p{
+  line-height: 25px;
+}
+
+/*contact us*/
+.contact-form{
+  max-width: 770px;
+  display: flex;
+  padding: 50px;
+  margin: 0 auto;
+  border-radius: 10px;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 10px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 50px 0px rgba(0,0,0,0.75);
+}
+.contact-form form, #google-map{
+  width: 48%
+}
+.contact-form input, .contact-form textarea{
+  width: 100%;
+  margin-bottom: 30px;
+  border: 2px solid #d6d6d6;
+  border-style: none none solid none;
+  padding: 5px 0 5px 5px;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder{
+  font-size: 14px;
+  font-style: italic;
+  color: #b9b9b9;
+}
+.contact-form textarea{
+  resize: none;
+}
+#google-map{
+  height: auto;
+  -webkit-box-shadow: -20px 20px 0px 0px rgba(232,191,93,1);
+  -moz-box-shadow: -20px 20px 0px 0px rgba(232,191,93,1);
+  box-shadow: -20px 20px 0px 0px rgba(232,191,93,1);
+}
+/*footer*/
+footer{
+  background: #111111;
+  color: #ffffff;
+  line-height: 80px;
+}
+footer .wrapper{
+  display: flex;
+}
+footer p{
+  font-size: 18px;
+}
+.social{
+  margin-left: auto;
+}
+.social a{
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background: url(../images/social-ico.png) no-repeat;
+  margin-left: 15px;
+  transition: opacity 0.5s;
+}
+.social a:hover{
+  opacity: 0.5;
+}
+.social .twitter{
+  background-position: -30px 0;
+}
+.social .g{
+  background-position: -63px 0;
+}
+.social .instagram{
+  background-position: -98px 0;
 }
